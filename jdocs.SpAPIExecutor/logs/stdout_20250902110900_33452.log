@@ -1,0 +1,187 @@
+?? sp_definitions.json raw content:
+{
+  "procedures": [
+    {
+      "name": "usp_Documents_Generation_System",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "LeadCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "BranchCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "CustomerID",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    },
+	{
+      "name": "usp_GetAccountsList",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "CIF",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    },
+	{
+      "name": "usp_Account_Analytics",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "LeadCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "BranchCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "AccountID",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    }
+  ]
+}
+
+? Loaded SP count: 3
+?? Loaded SP names:
+   - usp_Documents_Generation_System (Schema: dbo)
+   - usp_GetAccountsList (Schema: dbo)
+   - usp_Account_Analytics (Schema: dbo)
+?? sp_validations.json raw content:
+{
+  "validations": [
+    {
+      "procedure": "GetCustomerAccountsByDateAndCif",
+      "rules": [
+        {
+          "parameter": "date",
+          "rules": ["notEmpty"]
+        },
+        {
+          "parameter": "cif",
+          "rules": ["notEmpty", "greaterThan:0"]
+        }
+      ]
+    }
+  ]
+}
+
+? SQL Server connection: SUCCESS
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [LeadCoMne, LUX], [BranchCoMne, LUX], [AccountID, 111]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 536ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Documents_Generation_System
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Documents_Generation_System with inputs: [LeadCoMne, LUX], [BranchCoMne, LUX], [CustomerID, 111]
+info: StoredProcedureService[0]
+      Executed SP: usp_Documents_Generation_System in 1181ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 234], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 362ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 234], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 373ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 234], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 366ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 234], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 350ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 234], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 354ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 5000012132], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 356ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 5000012132], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 370ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 234], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 346ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 234], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 350ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 234], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 365ms
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 234], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 356ms

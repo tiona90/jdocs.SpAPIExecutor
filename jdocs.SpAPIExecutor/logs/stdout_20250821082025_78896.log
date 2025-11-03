@@ -1,0 +1,91 @@
+?? sp_definitions.json raw content:
+{
+  "procedures": [
+    {
+      "name": "usp_Documents_Generation_System",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "LeadCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "BranchCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "CustomerID",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    },
+	{
+      "name": "usp_GetAccountsList",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "CIF",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    },
+	{
+      "name": "usp_Account_Analytics",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "LeadCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "BranchCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "AccountID",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    }
+  ]
+}
+
+? Loaded SP count: 3
+?? Loaded SP names:
+   - usp_Documents_Generation_System (Schema: dbo)
+   - usp_GetAccountsList (Schema: dbo)
+   - usp_Account_Analytics (Schema: dbo)
+?? sp_validations.json raw content:
+{
+  "validations": [
+    {
+      "procedure": "GetCustomerAccountsByDateAndCif",
+      "rules": [
+        {
+          "parameter": "date",
+          "rules": ["notEmpty"]
+        },
+        {
+          "parameter": "cif",
+          "rules": ["notEmpty", "greaterThan:0"]
+        }
+      ]
+    }
+  ]
+}
+
+? SQL Server connection: SUCCESS
+info: StoredProcedureService[0]
+      Looking for SP: usp_Account_Analytics
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Account_Analytics with inputs: [AccountID, 5000001576], [BranchCoMne, lux], [LeadCoMne, lux]
+info: StoredProcedureService[0]
+      Executed SP: usp_Account_Analytics in 380ms

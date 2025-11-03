@@ -1,0 +1,124 @@
+?? sp_definitions.json raw content:
+{
+  "procedures": [
+    {
+      "name": "usp_Documents_Generation_System",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "LeadCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "BranchCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "CustomerID",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    },
+	{
+      "name": "usp_GetAccountsList",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "CIF",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    },
+	{
+      "name": "usp_Account_Analytics",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "LeadCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "BranchCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "AccountID",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    }
+  ]
+}
+
+? Loaded SP count: 3
+?? Loaded SP names:
+   - usp_Documents_Generation_System (Schema: dbo)
+   - usp_GetAccountsList (Schema: dbo)
+   - usp_Account_Analytics (Schema: dbo)
+?? sp_validations.json raw content:
+{
+  "validations": [
+    {
+      "procedure": "GetCustomerAccountsByDateAndCif",
+      "rules": [
+        {
+          "parameter": "date",
+          "rules": ["notEmpty"]
+        },
+        {
+          "parameter": "cif",
+          "rules": ["notEmpty", "greaterThan:0"]
+        }
+      ]
+    }
+  ]
+}
+
+? SQL Server connection FAILED: A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+info: StoredProcedureService[0]
+      Looking for SP: usp_Documents_Generation_System
+info: StoredProcedureService[0]
+      Available SPs: usp_Documents_Generation_System, usp_GetAccountsList, usp_Account_Analytics
+info: StoredProcedureService[0]
+      Executing SP: usp_Documents_Generation_System with inputs: [LeadCoMne, LUX], [BranchCoMne, LUX], [CustomerID, 111]
+fail: ErrorHandlingMiddleware[0]
+      Unhandled exception occurred.
+      Microsoft.Data.SqlClient.SqlException (0x80131904): A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+       ---> System.ComponentModel.Win32Exception (53): The network path was not found.
+         at Microsoft.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+         at Microsoft.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, SqlCommand command, Boolean callerHasConnectionLock, Boolean asyncClose)
+         at Microsoft.Data.SqlClient.TdsParser.Connect(ServerInfo serverInfo, SqlInternalConnectionTds connHandler, TimeoutTimer timeout, SqlConnectionString connectionOptions, Boolean withFailover)
+         at Microsoft.Data.SqlClient.SqlInternalConnectionTds.AttemptOneLogin(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, TimeoutTimer timeout, Boolean withFailover)
+         at Microsoft.Data.SqlClient.SqlInternalConnectionTds.LoginNoFailover(ServerInfo serverInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString connectionOptions, SqlCredential credential, TimeoutTimer timeout)
+         at Microsoft.Data.SqlClient.SqlInternalConnectionTds.OpenLoginEnlist(TimeoutTimer timeout, SqlConnectionString connectionOptions, SqlCredential credential, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance)
+         at Microsoft.Data.SqlClient.SqlInternalConnectionTds..ctor(DbConnectionPoolIdentity identity, SqlConnectionString connectionOptions, SqlCredential credential, Object providerInfo, String newPassword, SecureString newSecurePassword, Boolean redirectedUserInstance, SqlConnectionString userConnectionOptions, SessionData reconnectSessionData, Boolean applyTransientFaultHandling, String accessToken, DbConnectionPool pool, Func`3 accessTokenCallback)
+         at Microsoft.Data.SqlClient.SqlConnectionFactory.CreateConnection(DbConnectionOptions options, DbConnectionPoolKey poolKey, Object poolGroupProviderInfo, DbConnectionPool pool, DbConnection owningConnection, DbConnectionOptions userOptions)
+         at Microsoft.Data.ProviderBase.DbConnectionFactory.CreatePooledConnection(DbConnectionPool pool, DbConnection owningObject, DbConnectionOptions options, DbConnectionPoolKey poolKey, DbConnectionOptions userOptions)
+         at Microsoft.Data.ProviderBase.DbConnectionPool.CreateObject(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+         at Microsoft.Data.ProviderBase.DbConnectionPool.UserCreateRequest(DbConnection owningObject, DbConnectionOptions userOptions, DbConnectionInternal oldConnection)
+         at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal& connection)
+         at Microsoft.Data.ProviderBase.DbConnectionPool.WaitForPendingOpen()
+      --- End of stack trace from previous location ---
+         at StoredProcedureService.ExecuteAsync(String procedureName, Dictionary`2 inputParams) in C:\Software\SpApiExecutorWithValidation\Services\StoredProcedureService.cs:line 54
+         at StoredProcedureController.ExecuteGet(String procedureName) in C:\Software\SpApiExecutorWithValidation\Controllers\StoredProcedureController.cs:line 18
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+         at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+         at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+         at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+         at ErrorHandlingMiddleware.Invoke(HttpContext context) in C:\Software\SpApiExecutorWithValidation\Middleware\ErrorHandlingMiddleware.cs:line 21
+      ClientConnectionId:00000000-0000-0000-0000-000000000000
+      Error Number:53,State:0,Class:20

@@ -1,0 +1,56 @@
+{
+  "procedures": [
+    {
+      "name": "usp_Documents_Generation_System",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "LeadCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "BranchCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "CustomerID",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    },
+	{
+      "name": "usp_GetAccountsList",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "CIF",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    },
+	{
+      "name": "usp_Account_Analytics",
+      "schema": "dbo",
+      "inputParameters": [
+        {
+          "name": "LeadCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "BranchCoMne",
+          "type": "nvarchar"
+        },
+        {
+          "name": "AccountID",
+          "type": "nvarchar"
+        }
+      ],
+      "outputParameters": [],
+      "returnsResultSet": true
+    }
+  ]
+}

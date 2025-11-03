@@ -1,0 +1,17 @@
+{
+  "validations": [
+    {
+      "procedure": "GetCustomerAccountsByDateAndCif",
+      "rules": [
+        {
+          "parameter": "date",
+          "rules": ["notEmpty"]
+        },
+        {
+          "parameter": "cif",
+          "rules": ["notEmpty", "greaterThan:0"]
+        }
+      ]
+    }
+  ]
+}
